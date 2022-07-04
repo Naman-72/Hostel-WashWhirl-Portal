@@ -1,0 +1,42 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/navbar.ejs') %>
+
+<div >
+   <div class="row">
+     <div class=" col-6 jumbotron my-5 mx-5" style="background-image: url('https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80');background-repeat:no-repeat;width:500px;height:500px">
+    </div>
+    <div class="col-4 card">
+      <div class="card-body">
+        <h3 class="card-subtitle mb-2 "><%= userdata.Username %></h3>
+        <p class="card-text">
+          <ul class="list-group">
+            <li class="list-group-item" style="background-color: black;color:white;font-size:larger;font:bolder">Name : <%= userdata.Username %></li>
+            <li class="list-group-item" style="background-color: rgb(60, 204, 3);color:white;font-size:larger;font:bolder">Phone : <%= userdata.Phone %></li>
+            <li class="list-group-item" style="background-color: rgb(39, 0, 182);color:white;font-size:larger;font:bolder">Email : <%= userdata.Email %></li>
+            <li class="list-group-item" style="background-color: rgb(255, 136, 0);color:white;font-size:larger;font:bolder">Status: <%= userdata.Status %></li>
+          </ul>
+        </p>
+        <h2 class="card-title" style="color:dodgerblue;">UPDATE STATUS</h2>
+        <form action="/editStatus/<%= userdata._id %>" method="post">
+          <Label><h4 style="color:blueviolet;">Current Status</h4></Label>
+          <div class="container">
+            <div class="px-3 mx-3">
+              <input type="radio" name="Status" id="Washing" value="Washing">
+              <label for="Washing"><h2>Washing</h2></label>
+            </div>
+            <div class="px-3 mx-3">
+              <input type="radio" name="Status" id="Drying" value="Drying">
+              <label for="Drying"><h2>Drying</h2></label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-hover btn-lg btn-block" style="background-color:rgb(82, 254, 94) ;border-radius:5px">
+            UPDATE
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('includes/footer.ejs') %>
+

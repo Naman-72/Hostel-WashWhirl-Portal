@@ -1,0 +1,46 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/navbar.ejs') %>
+
+<div class="container-fluid my-5" >
+    <div class="jumbotron bg-info justify-content-center">
+        <div class="row">
+            <div class="col-6">
+                <img src="https://freepngimg.com/download/emoji/101890-confused-emoji-free-png-hq.png" style="clip-path: circle(50% at 50% 50%);" alt="loading">
+            </div>
+            <div class="col-6" style="background-color: white;">
+                <ul class="list-group my-5">
+                    <li class="list-group-item" style="background-color: black;color:white;font-size:larger;font:bolder;word-spacing:20px;">Name : <%= userdata[0].Username %></li>
+                    <li class="list-group-item" style="background-color: rgb(60, 204, 3);color:white;font-size:larger;font:bolder;word-spacing:20px;">Phone : <%= userdata[0].Phone %></li>
+                    <li class="list-group-item" style="background-color: rgb(39, 0, 182);color:white;font-size:larger;word-spacing:20px;font:bolder">Email : <%= userdata[0].Email %></li>
+                </ul>
+                <div class="alert alert-primary" role="alert">
+                   <H2 style="word-spacing:10px">
+                       Are You Sure You Don't Want To Get Reminder Now ?
+                   </H2>
+                </div>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-3">
+                        <form action="/removeFromQueue/<%= userdata[0]._id %>" method="post">
+                            <a>
+                                <button class="btn btn-danger btn-block btn-hover btn-lg">
+                                    YES 
+                                </button>
+                            </a>
+                        </form>
+                    </div>
+                    <div class="col-3">
+                        <a href="/">
+                            <button class="btn btn-warning btn-hover  btn-block btn-lg">
+                                NO
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('includes/footer.ejs') %>
+

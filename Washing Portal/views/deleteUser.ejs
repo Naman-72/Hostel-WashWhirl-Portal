@@ -1,0 +1,31 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/navbar.ejs') %>
+
+<div >
+   <div class="row">
+     <div class=" col-6 jumbotron my-5 mx-5" style="background-image: url('https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80');background-repeat:no-repeat;width:500px;height:500px">
+    </div>
+    <div class="col-4 card">
+      <div class="card-body">
+        <h3 class="card-subtitle mb-2 "><%= userdata.Username %></h3>
+        <p class="card-text">
+          <ul class="list-group">
+            <li class="list-group-item" style="background-color: black;color:white;font-size:larger;font:bolder">Name : <%= userdata.Username %></li>
+            <li class="list-group-item" style="background-color: rgb(60, 204, 3);color:white;font-size:larger;font:bolder">Phone : <%= userdata.Phone %></li>
+            <li class="list-group-item" style="background-color: rgb(39, 0, 182);color:white;font-size:larger;font:bolder">Email : <%= userdata.Email %></li>
+            <li class="list-group-item" style="background-color: rgb(255, 136, 0);color:white;font-size:larger;font:bolder">Status: <%= userdata.Status %></li>
+          </ul>
+        </p>
+        <h2 class="card-title my-5" style="color:rgb(255, 0, 0);padding:20px">COMPLETED : </h2>
+        <form action="/remove/<%= userdata._id %>" method="post">
+          <button type="submit" class="btn btn-danger btn-lg btn-block btn-hover">
+            DONE
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('includes/footer.ejs') %>
+

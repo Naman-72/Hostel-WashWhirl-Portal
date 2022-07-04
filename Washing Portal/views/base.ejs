@@ -1,0 +1,96 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/navbar.ejs') %>
+
+<!-- <div style="background-image: url('https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80')"> -->
+<div style="background: linear-gradient(45deg, rgb(255, 2, 255), rgb(0, 247, 255));">
+
+    <div class="container my-5">
+        <div class="jumbotron my-5" style="background-color:aquamarine;">
+            <h1 class="display-4" style="color:darkmagenta;font-family:'Times New Roman', Times, serif">WASHING MACHINE 1</h1>
+        <p class="lead" >
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr class="text-center">
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Done</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for( var i = 0; i < users.length ; i++){ %>
+                        <tr class="table-warning text-center my-2">
+                            <th scope="row"><%= i+1 %></th>
+                            <td><%= users[i].Username %></td>
+                            <td><%= users[i].Phone %></td>
+                            <td><%= users[i].Email %></td>
+                            <td>
+                                <a href="/editStatus/<%= users[i]._id %>"  style="font-family:'Sansita Swashed', cursive;padding:5px;background-color: white;margin:4px;box-shadow: 2px 2px grey"">
+                                    <i class="fa-solid fa-pencil">
+                                    </i>
+                                    <%= users[i].Status %> 
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/remove/<%= users[i]._id %>">
+                                    <button class="btn" style="background-color: green;color:white;box-shadow: 2px 2px black;border-radius: 2px;">Done</button>
+                                </a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </p>
+        <div class="my-5" style="display:flex;align-items:center;justify-content:center">
+            <a href="/addUser">
+                <button class="btn btn-hover btn-lg my-3 mx-2 px-2" style="background-color:rgb(135, 10, 252);color:aliceblue;border: solid 3px black;border-radius:2px;box-shadow: 4px 4px grey">Add Current User</button>
+            </a>
+        </div>
+        <hr class="my-4">
+        <H3 style="color: black;">
+            Queue
+        </H3>
+        <table class="table table-hover text-center">
+            <thead>
+                <tr class="thead-dark">
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email ID</th>
+                    <th scope="col">Remove</th>
+                </tr>
+            </thead>
+            <tbody  style="background-color:rgb(124, 1, 126);color:whitesmoke;text-align:center;cursor:pointer">
+                <% for( var i = 0; i < queueusers.length ; i++){ %>
+                <tr>
+                    <th scope="row"><%= i+1 %></th>
+                    <td><%= queueusers[i].Username %></td>
+                    <td><%= queueusers[i].Phone %></td>
+                    <td><%= queueusers[i].Email %></td>
+                    <td>
+                        <span>
+                            <a href="/removeFromQueue/<%= queueusers[i]._id %>" style="background-color:rgb(255, 4, 4);color:white;font-family:'Sansita Swashed', cursive;padding:5px;">
+                                <i class="fa-solid fa-trash-can">
+                                </i>
+                                Remove
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <div style="display:flex;align-items:center;justify-content:center;margin-top:40px;">
+            <a href="/addQueue">
+                <button class="btn btn-hover btn-lg my-3 mx-2 px-2" style="background-color:rgb(222, 184, 255);color:rgb(0, 0, 0);border: solid 4px black;border-radius:2px;box-shadow: 4px 4px grey">Add Reminder</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<%- include('includes/footer.ejs') %>
+
