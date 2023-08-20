@@ -1,4 +1,4 @@
-# Washing-Portal
+# HostelWash Portal 
 <img width="220" alt="image" src="https://user-images.githubusercontent.com/77402137/177411307-09feec0e-8e92-4486-b924-46dcbc1a8cab.png">
 
 💻 To Run This App
